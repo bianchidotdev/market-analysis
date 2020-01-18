@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+require 'chartkick'
+include Chartkick::Helper
+
+$:.unshift (__dir__ + '/../lib')
+
+require 'finance'
+
+@data = Finance::Data.load
+
+def sample_pie_chart
+  pie_chart [["Football", 10], ["Basketball", 5]]
+end
+
+puts "Test with `Finance::Chart.output_chart('pie_chart.html', sample_pie_chart)`"
+require 'pry'
+Pry.start
